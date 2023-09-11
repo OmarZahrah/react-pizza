@@ -1,0 +1,64 @@
+1- create-vite-app
+===========================
+2-install&connect eslint{
+    - (npm i eslint vite-plugin-eslint eslint-config-react-app --save-dev)
+    - create .eslintrc.json file:
+    {
+        "extends":"react-app",
+    }
+===========================
+3-open vite.config.js:
+    - import eslint from "vite-plugin-eslint";
+    - add eslint() to the plugins; 
+}
+    -add this to .eslint.cjs file 
+        rules: {
+            no-unused-vars": "warn",
+        },
+=============================
+4-install react router dom (check the documentation)
+    read loaded data: useLoaderData();
+    isLoading => using useNavigation();
+
+
+=====================================================================================================
+=====================================================================================================
+Redux tookit
+
+- npm i @reduxjs/toolkit react-redux
+
+make initial state;
+const anynameSlice= createSlice({
+
+    name: 'anyname',
+    initialState,
+    reducers:{
+        ....
+
+    }
+}
+)
+export const {functions...}= anynameSlice.actions;
+export default anynameSlice.reducer;
+
+- make store.js file in src folder 
+    
+    const store = configureStore({
+    reducer: {
+        user: anynameReducer,
+    },
+    });
+
+export default store;
+
+- connect to application in main.jsx
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>, 
+
+  - to get data useSelector(state=>stat.anything);
+
+  - to access dispatch function 
+        const dispatch=useDispatch();
